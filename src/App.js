@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import "normalize.css";
 import './App.css';
-import Board from "./components/Board";
+// import Index from "./components/Board/Board";
 const evilPuzzle = [
   '094080020',
   '060007000',
@@ -38,10 +40,12 @@ const current = [
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Board puzzle={puzzle} current={current} />
+      <Router>
+        <Switch>
+          <Route exact path='/puzzles' component={PuzzleListPage}/>
+        </Switch>
+      </Router>
 
-      </div>
     );
   }
 }

@@ -1,0 +1,14 @@
+.StepState {
+    display: flex;
+}
+
+.StepState-num {
+    font-family: Consolas, monospace;
+    width: 27px;
+    height: 27px;
+    line-height: 27px;
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    background: #f0f0f0;
+}

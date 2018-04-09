@@ -1,0 +1,9 @@
+.StepList-item {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.StepList-item .StepIcon {
+  margin-right: 8px;
+}

@@ -1,65 +1,6 @@
+
 body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-}
-
-.board {
-    border: 2px solid #222;
-    border-collapse: collapse;
-}
-
-.board > tbody > tr:nth-child(3) > td,
-.board > tbody > tr:nth-child(6) > td {
-    border-bottom: 2px solid #222;
-}
-
-.board > tbody > tr > td:nth-child(3),
-.board > tbody > tr > td:nth-child(6) {
-    border-right: 2px solid #222;
-}
-
-.board > tbody > tr > td {
-    border: 1px solid #ccc;
-}
-
-.cell {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    width: 60px;
-    height: 60px;
-    align-items: center;
-    justify-content: center;
-}
-
-.cell > .option {
-    display: block;
-    width: 33.33%;
-    height: 33.33%;
-}
-
-.cell > .cell-fixed {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.cell > .invalid {
-    color: #cccccc;
-    text-decoration: line-through;
-}
-
-.cell > .chosen {
-    position: absolute;
-    display: flex;
-    top:0;
-    right:0;
-    left: 0;
-    bottom:0;
-    background: rgba(255,255,255,0.7);
-    color: blue;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    font-weight: bold;
 }
