@@ -4,7 +4,7 @@ import { range9 } from '../../const';
 import './index.css';
 import { blockIndex } from "../../utils";
 
-export default class StepBoard extends React.Component {
+export default class StepBoard extends React.PureComponent {
   render() {
     const { puzzle, steps } = this.props;
     let pRowMask = range9.map(() => 0), pColMask = range9.map(() => 0), pBlockMask = range9.map(() => 0);
@@ -13,10 +13,13 @@ export default class StepBoard extends React.Component {
     let cells = range9.map(row => range9.map(col => puzzle[row][col] ?
       <span className='cell cell-fixed'>{puzzle[row][col]}</span> : null));
 
-    steps.forEach(([row, col, value], i) => {
+    steps.forEach(({ yIndex }, i) => {
+      const row = Math.floor(yIndex / 81);
+      const col = Math.floor(yIndex / 9) % 9;
+      const num = yIndex % 9;
       cells[row][col] = i === steps.length - 1
-        ? <span className='cell cell-current'>{value + 1}</span>
-        : <span className='cell cell-prev'>{value + 1}</span>
+        ? <span className='cell cell-current'>{num + 1}</span>
+        : <span className='cell cell-prev'>{num + 1}</span>
     });
 
     range9.forEach(row => {
@@ -30,8 +33,11 @@ export default class StepBoard extends React.Component {
       })
     });
 
-    steps.forEach(([row, col, value]) => {
-      const num = value;
+    steps.forEach(({ yIndex }) => {
+      const row = Math.floor(yIndex / 81);
+      const col = Math.floor(yIndex / 9) % 9;
+      const num = yIndex % 9;
+
       sRowMask[row] ^= (1 << num);
       sColMask[col] ^= (1 << num);
       sBlockMask[blockIndex(row, col)] ^= (1 << num);
@@ -61,7 +67,7 @@ export default class StepBoard extends React.Component {
     });
 
     return (
-      <Board className='StepBoard' renderCell={(row, col) => cells[row][col]}/>
+      <Board className='StepBoard' renderCell={(row, col) => cells[row][col]} />
     );
   }
 }

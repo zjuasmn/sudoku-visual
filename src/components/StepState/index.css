@@ -1,0 +1,33 @@
+.StepState {
+    display: flex;
+    font-family: Consolas, monospace;
+}
+
+.StepState-option {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+
+    font-size: 16px;
+    background: #f0f0f0;
+}
+.StepState-option.StepState-option-valid {
+    color: #666;
+    background: #ccc;
+}
+
+.StepState-option.StepState-option-invalid {
+    background: #f0f0f0;
+    color: #aaa;
+}
+
+.StepState-option.StepState-option-prev {
+    background: red;
+    color: white;
+}
+
+.StepState-option.StepState-option-current {
+    background: blue;
+    color: white;
+}

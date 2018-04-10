@@ -1,0 +1,45 @@
+.SolverPage {
+    display: flex;
+}
+
+.SolverPage-controls {
+    display: flex;
+}
+
+.SolverPage .SolverPage-controlButton {
+    background: #dddddd;
+    font-size: 14px;
+    height: 24px;
+    line-height: 24px;
+    margin-right: 16px;
+    text-align: center;
+    width: 72px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.SolverPage .SolverPage-speedOptions {
+    background: #cccccc;
+    border-radius: 3px;
+    overflow: hidden;
+    display: flex;
+}
+
+.SolverPage .SolverPage-speedOption {
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+.SolverPage .SolverPage-speedOption.active {
+    font-weight: bold;
+    background: #ddd;
+}
+
+.SolverPage .SolverPage-speedOption:hover {
+    background: #ddd;
+}

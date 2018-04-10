@@ -1,61 +1,81 @@
 .StepBoard .cell {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  transition: all ease 200ms;
-  width: 60px;
-  height: 60px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    transition: all ease 200ms;
+    width: 48px;
+    height: 48px;
+    user-select: none;
 }
 
 .StepBoard .cell-fixed {
-  font-size: 24px;
-  font-weight: bold;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .StepBoard .cell-prev {
-  font-size: 24px;
-  font-weight: normal;
-  color: blue;
+    font-size: 24px;
+    font-weight: normal;
+    color: blue;
 }
 
 .StepBoard .cell-current {
-  font-size: 24px;
-  background: lightblue;
-  font-weight: bold;
-  color: blue;
+    font-size: 24px;
+    background: lightblue;
+    font-weight: bold;
+    color: blue;
 }
 
 .StepBoard .cell > .cell-option {
-  position: relative;
-  display: block;
-  width: 33.33%;
-  height: 33.33%;
-  text-align: center;
-  transition: all ease 200ms;
+    position: relative;
+    font-size: 14px;
+    display: block;
+    width: 33.33%;
+    height: 33.33%;
+    text-align: center;
+    transition: all ease 200ms;
+}
+
+.StepBoard .cell > .cell-option-marked {
+    animation: highlight 500ms;
 }
 
 .StepBoard .cell > .cell-option-invalid,
 .StepBoard .cell > .cell-option-marked {
-  color: #999;
+    color: #999;
+}
+
+.StepBoard .cell > .cell-option-invalid {
+    opacity: 0.3;
 }
 
 .StepBoard .cell > .cell-option-invalid::before,
 .StepBoard .cell > .cell-option-marked::before {
-  position: absolute;
-  content: '';
-  height: 1px;
-  top: calc(50%);
-  left: 2px;
-  right: 2px;
-  transform: rotate(45deg);
+    position: absolute;
+    content: '';
+    height: 2px;
+    top: calc(50% - 1px);
+    left: 3px;
+    right: 3px;
+    transform: rotate(45deg);
+    opacity: 0.5;
 }
 
 .StepBoard .cell > .cell-option-invalid::before {
-  background: #999;
+    background: #999;
 }
 
 .StepBoard .cell > .cell-option-marked::before {
-  background: blue;
+    background: blue;
+}
+
+@keyframes highlight {
+    from {
+        background: blue
+    }
+    to {
+        background: transparent
+    }
 }

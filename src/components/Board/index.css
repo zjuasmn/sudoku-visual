@@ -1,6 +1,7 @@
 .Board {
   border: 2px solid #222;
   border-collapse: collapse;
+  font-family: Consolas, monospace;
 }
 
 .Board > tbody > tr > td {

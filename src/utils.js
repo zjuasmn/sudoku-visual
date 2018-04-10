@@ -1,4 +1,4 @@
-import { range9 } from "./const";
+import { range9, Types } from "./const";
 
 export function stringToPuzzle(s) {
   const arr = s.split('\n');
@@ -28,4 +28,11 @@ export function puzzleToString(puzzle) {
 
 export function blockIndex(row, col) {
   return Math.floor(row / 3) * 3 + Math.floor(col / 3);
+}
+
+export function xInfo(xIndex) {
+  return {
+    type: [Types.CELL, Types.ROW, Types.COL, Types.BLOCK][Math.floor(xIndex / 81)],
+    index: xIndex % 81,
+  }
 }

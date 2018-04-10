@@ -106,10 +106,17 @@ export default function* solver(puzzle) {
       yield false;
       return;
     }
-    let tryIndex = 0;
+    let yIndexes = [];
+    for (let z = minX.d; z !== minX; z = z.d){
+      yIndexes.push(z.yIndex);
+    }
     for (let z = minX.d; z !== minX; z = z.d) {
       remove(Y[z.yIndex]);
-      yield { xIndex: z.xIndex, yIndex: z.yIndex, count: minCount, tryIndex: tryIndex++ };
+      yield {
+        xIndex: z.xIndex,
+        yIndex: z.yIndex,
+        yIndexes,
+      };
       for (let result of dfs()) {
         yield result;
         if (result === true) {
